@@ -52,7 +52,9 @@ else{
                                                       
                                                        `form`, `                date_breg`,                 `date_ereg`,                                                      `date_exam`, 
                                                        
-                                                       `date_post`,                                                     `grp_prefix`, `grp_limit`, `next_group`, `var_prefix`, `min_var`, `max_var`, `descr`, `task_count`, 
+                                                       `date_post`,                                                     `grp_prefix`,                             `grp_limit`, `next_group`, `var_prefix`,
+                                                        
+                                                        `min_var`,        `max_var`,          `descr`,        `task_count`, 
                                                        
                                                        `results_ready`, `cipher`, `task_weight`, `use_person_result_text`, `stage_result_text`) 
                            VALUES                     (NULL, ".($_POST['n_exam']).", '".($_POST['n_classes'])."', ".($_POST['n_place']).", 0, 0, ".($a['year']).", ".($_POST['n_stage']).", 
@@ -61,7 +63,9 @@ else{
                                         
                                                      '".($_POST['n_date_post'])." ".($_POST['n_date_post_time'])."',                            '".($grp_name[0])."', 251, 1, '".($_POST['n_var_prefix'])."', 
                                         
-                                                       ".($n_min_var).", ".($n_max_var).", '', ".($n_task_count).", 'N', '', '', '".($_POST['n_task_weight'])."', '');";
+                                                       ".($n_min_var).", ".($n_max_var).", '',              ".($n_task_count).", 
+                                                       
+                                                       'N',             '',         '', '".($_POST['n_task_weight'])."', '');";
             $flag = true;
         }
 
