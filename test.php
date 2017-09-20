@@ -46,27 +46,20 @@ else{
 
             $query_text = "select name from olimp_groups where id=".(+$_POST['n_grp_prefix']).";";
             $q = mysql_query($query_text);
-           // $grp_name = mysql_fetch_row($q);
-            $grp_name = $_POST['n_grp_prefix'];
+            $grp_name = mysql_fetch_row($q);
             $a = getdate();
-            $query_text = "INSERT INTO `olimp_stages` (`id`,   `exam`,                `classes`,                 `place`,             `limit`, `regs`, `year`, `stage`, 
-                                                      
-                                                       `form`, `date_breg`,                 `date_ereg`,                                                      `date_exam`, 
-                                                       
-                                                       `date_post`,                                                     `grp_prefix`,                             `grp_limit`, `next_group`, `var_prefix`,
-                                                        
-                                                        `min_var`,        `max_var`,          `descr`,        `task_count`, 
-                                                       
+            $query_text = "INSERT INTO `olimp_stages` (`id`, `exam`, `classes`, `place`, `limit`, `regs`, `year`, `stage`, 
+                                                       `form`, `date_breg`, `date_ereg`, `date_exam`, `date_post`, `grp_prefix`, 
+                                                       `grp_limit`, `next_group`, `var_prefix`, `min_var`, `max_var`, `descr`, `task_count`, 
                                                        `results_ready`, `cipher`, `task_weight`, `use_person_result_text`, `stage_result_text`) 
-                           VALUES                     (NULL, ".($_POST['n_exam']).", '".($_POST['n_classes'])."', ".($_POST['n_place']).", 0, 0, ".($a['year']).", ".($_POST['n_stage']).", 
-                                                       
-                                                       ".($_POST['n_form']).", '".($_POST['n_date_breg'])."','".($_POST['n_date_ereg'])." ".($_POST['n_date_ereg_time'])."', '".($_POST['n_date_exam'])." ".($_POST['n_date_exam_time'])."', 
-                                        
-                                                     '".($_POST['n_date_post'])." ".($_POST['n_date_post_time'])."', '".($_POST['n_grp_prefix'])."', 251, 1, '".($_POST['n_var_prefix'])."', 
-                                        
-                                                       ".($n_min_var).", ".($n_max_var).", '',              ".($n_task_count).", 
-                                                       
-                                                       'N',             '',        '".($_POST['n_task_weight'])."', '','');";
+                           VALUES (NULL, ".($_POST['n_exam']).", '".($_POST['n_classes'])."', ".($_POST['n_place']).", 0, 0, ".($a['year']).", 
+                                         ".($_POST['n_stage']).", ".($_POST['n_form']).", '".($_POST['n_date_breg'])."',
+                                         '".($_POST['n_date_ereg'])." ".($_POST['n_date_ereg_time'])."', 
+                                         '".($_POST['n_date_exam'])." ".($_POST['n_date_exam_time'])."', 
+                                         '".($_POST['n_date_post'])." ".($_POST['n_date_post_time'])."', 
+                                         '".($grp_name[0])."', 251, 1, '".($_POST['n_var_prefix'])."', 
+                                         ".($n_min_var).", ".($n_max_var).", '', ".($n_task_count).", 
+                                         'N', '', '', '".($_POST['n_task_weight'])."', '');";
             $flag = true;
         }
 
@@ -229,7 +222,8 @@ else{
   </style>
   
 <script>
-  document.getElementById("form").onchange = function(){
+  document.getElementById("form").onchange = function()
+  {
     j = this.value;
 
     var d_p_l = document.getElementById("date_post_lableID");
@@ -262,7 +256,8 @@ else{
 
     //sB.style.display = "none";  
 
-    if (j==2) {
+    if (j==2) 
+    {
     d_p_l.style.display = "inline-block"; 
     d_p.style.display = "inline-block";
     d_p_t.style.display = "inline-block";
@@ -278,7 +273,7 @@ else{
 
     //sB.style.display = "inline-block";  
     }
-    else //sB.style.display = "inline-block";
+    else {}//sB.style.display = "inline-block";
     //alert(123);
   }
   </script>';
@@ -419,4 +414,10 @@ td
 
     $body = build_page();
 }
-?>
+?><?php
+/**
+ * Created by PhpStorm.
+ * User: anastasiadanilkina
+ * Date: 20.09.17
+ * Time: 21:04
+ */
